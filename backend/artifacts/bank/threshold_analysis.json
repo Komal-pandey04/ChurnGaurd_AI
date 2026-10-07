@@ -1,0 +1,387 @@
+{
+  "raw": {
+    "assumptions": {
+      "fn_cost": 10.0,
+      "fp_cost": 1.0,
+      "note": "Illustrative business assumptions, not measured."
+    },
+    "best_threshold": {
+      "threshold": 0.09,
+      "precision": 0.3525,
+      "recall": 0.9042,
+      "flagged": 1044,
+      "cost": 1066.0
+    },
+    "top_decile_lift": 4.054,
+    "grid": [
+      {
+        "threshold": 0.01,
+        "precision": 0.2065,
+        "recall": 0.9975,
+        "flagged": 1966,
+        "cost": 1570.0
+      },
+      {
+        "threshold": 0.05,
+        "precision": 0.2787,
+        "recall": 0.9484,
+        "flagged": 1385,
+        "cost": 1209.0
+      },
+      {
+        "threshold": 0.09,
+        "precision": 0.3525,
+        "recall": 0.9042,
+        "flagged": 1044,
+        "cost": 1066.0
+      },
+      {
+        "threshold": 0.13,
+        "precision": 0.4089,
+        "recall": 0.8378,
+        "flagged": 834,
+        "cost": 1153.0
+      },
+      {
+        "threshold": 0.17,
+        "precision": 0.4579,
+        "recall": 0.7887,
+        "flagged": 701,
+        "cost": 1240.0
+      },
+      {
+        "threshold": 0.21,
+        "precision": 0.5033,
+        "recall": 0.742,
+        "flagged": 600,
+        "cost": 1348.0
+      },
+      {
+        "threshold": 0.25,
+        "precision": 0.5441,
+        "recall": 0.7125,
+        "flagged": 533,
+        "cost": 1413.0
+      },
+      {
+        "threshold": 0.29,
+        "precision": 0.5832,
+        "recall": 0.6806,
+        "flagged": 475,
+        "cost": 1498.0
+      },
+      {
+        "threshold": 0.33,
+        "precision": 0.6229,
+        "recall": 0.629,
+        "flagged": 411,
+        "cost": 1665.0
+      },
+      {
+        "threshold": 0.37,
+        "precision": 0.651,
+        "recall": 0.5774,
+        "flagged": 361,
+        "cost": 1846.0
+      },
+      {
+        "threshold": 0.41,
+        "precision": 0.6791,
+        "recall": 0.5356,
+        "flagged": 321,
+        "cost": 1993.0
+      },
+      {
+        "threshold": 0.45,
+        "precision": 0.7182,
+        "recall": 0.5135,
+        "flagged": 291,
+        "cost": 2062.0
+      },
+      {
+        "threshold": 0.49,
+        "precision": 0.7462,
+        "recall": 0.4767,
+        "flagged": 260,
+        "cost": 2196.0
+      },
+      {
+        "threshold": 0.53,
+        "precision": 0.7642,
+        "recall": 0.4619,
+        "flagged": 246,
+        "cost": 2248.0
+      },
+      {
+        "threshold": 0.57,
+        "precision": 0.7902,
+        "recall": 0.4349,
+        "flagged": 224,
+        "cost": 2347.0
+      },
+      {
+        "threshold": 0.61,
+        "precision": 0.8209,
+        "recall": 0.4054,
+        "flagged": 201,
+        "cost": 2456.0
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.8351,
+        "recall": 0.3857,
+        "flagged": 188,
+        "cost": 2531.0
+      },
+      {
+        "threshold": 0.69,
+        "precision": 0.8743,
+        "recall": 0.3587,
+        "flagged": 167,
+        "cost": 2631.0
+      },
+      {
+        "threshold": 0.73,
+        "precision": 0.8926,
+        "recall": 0.3268,
+        "flagged": 149,
+        "cost": 2756.0
+      },
+      {
+        "threshold": 0.77,
+        "precision": 0.944,
+        "recall": 0.2899,
+        "flagged": 125,
+        "cost": 2897.0
+      },
+      {
+        "threshold": 0.81,
+        "precision": 0.9612,
+        "recall": 0.2432,
+        "flagged": 103,
+        "cost": 3084.0
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.9634,
+        "recall": 0.1941,
+        "flagged": 82,
+        "cost": 3283.0
+      },
+      {
+        "threshold": 0.89,
+        "precision": 0.9508,
+        "recall": 0.1425,
+        "flagged": 61,
+        "cost": 3493.0
+      },
+      {
+        "threshold": 0.93,
+        "precision": 0.9737,
+        "recall": 0.0909,
+        "flagged": 38,
+        "cost": 3701.0
+      },
+      {
+        "threshold": 0.97,
+        "precision": 1.0,
+        "recall": 0.0369,
+        "flagged": 15,
+        "cost": 3920.0
+      }
+    ]
+  },
+  "calibrated": {
+    "assumptions": {
+      "fn_cost": 10.0,
+      "fp_cost": 1.0,
+      "note": "Illustrative business assumptions, not measured."
+    },
+    "best_threshold": {
+      "threshold": 0.07,
+      "precision": 0.3477,
+      "recall": 0.9091,
+      "flagged": 1064,
+      "cost": 1064.0
+    },
+    "top_decile_lift": 4.054,
+    "grid": [
+      {
+        "threshold": 0.01,
+        "precision": 0.2035,
+        "recall": 1.0,
+        "flagged": 2000,
+        "cost": 1593.0
+      },
+      {
+        "threshold": 0.05,
+        "precision": 0.2428,
+        "recall": 0.9877,
+        "flagged": 1656,
+        "cost": 1304.0
+      },
+      {
+        "threshold": 0.09,
+        "precision": 0.4084,
+        "recall": 0.8329,
+        "flagged": 830,
+        "cost": 1171.0
+      },
+      {
+        "threshold": 0.13,
+        "precision": 0.4905,
+        "recall": 0.7617,
+        "flagged": 632,
+        "cost": 1292.0
+      },
+      {
+        "threshold": 0.17,
+        "precision": 0.5419,
+        "recall": 0.715,
+        "flagged": 537,
+        "cost": 1406.0
+      },
+      {
+        "threshold": 0.21,
+        "precision": 0.584,
+        "recall": 0.683,
+        "flagged": 476,
+        "cost": 1488.0
+      },
+      {
+        "threshold": 0.25,
+        "precision": 0.6194,
+        "recall": 0.6437,
+        "flagged": 423,
+        "cost": 1611.0
+      },
+      {
+        "threshold": 0.29,
+        "precision": 0.6489,
+        "recall": 0.5995,
+        "flagged": 376,
+        "cost": 1762.0
+      },
+      {
+        "threshold": 0.33,
+        "precision": 0.6599,
+        "recall": 0.5627,
+        "flagged": 347,
+        "cost": 1898.0
+      },
+      {
+        "threshold": 0.37,
+        "precision": 0.6791,
+        "recall": 0.5356,
+        "flagged": 321,
+        "cost": 1993.0
+      },
+      {
+        "threshold": 0.41,
+        "precision": 0.7053,
+        "recall": 0.5233,
+        "flagged": 302,
+        "cost": 2029.0
+      },
+      {
+        "threshold": 0.45,
+        "precision": 0.7329,
+        "recall": 0.4988,
+        "flagged": 277,
+        "cost": 2114.0
+      },
+      {
+        "threshold": 0.49,
+        "precision": 0.7462,
+        "recall": 0.4767,
+        "flagged": 260,
+        "cost": 2196.0
+      },
+      {
+        "threshold": 0.53,
+        "precision": 0.759,
+        "recall": 0.4644,
+        "flagged": 249,
+        "cost": 2240.0
+      },
+      {
+        "threshold": 0.57,
+        "precision": 0.7667,
+        "recall": 0.4521,
+        "flagged": 240,
+        "cost": 2286.0
+      },
+      {
+        "threshold": 0.61,
+        "precision": 0.7885,
+        "recall": 0.4398,
+        "flagged": 227,
+        "cost": 2328.0
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.8195,
+        "recall": 0.4128,
+        "flagged": 205,
+        "cost": 2427.0
+      },
+      {
+        "threshold": 0.69,
+        "precision": 0.8291,
+        "recall": 0.4054,
+        "flagged": 199,
+        "cost": 2454.0
+      },
+      {
+        "threshold": 0.73,
+        "precision": 0.8342,
+        "recall": 0.3833,
+        "flagged": 187,
+        "cost": 2541.0
+      },
+      {
+        "threshold": 0.77,
+        "precision": 0.8743,
+        "recall": 0.3587,
+        "flagged": 167,
+        "cost": 2631.0
+      },
+      {
+        "threshold": 0.81,
+        "precision": 0.8926,
+        "recall": 0.3268,
+        "flagged": 149,
+        "cost": 2756.0
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.944,
+        "recall": 0.2899,
+        "flagged": 125,
+        "cost": 2897.0
+      },
+      {
+        "threshold": 0.89,
+        "precision": 0.9556,
+        "recall": 0.2113,
+        "flagged": 90,
+        "cost": 3214.0
+      },
+      {
+        "threshold": 0.93,
+        "precision": 0.9623,
+        "recall": 0.1253,
+        "flagged": 53,
+        "cost": 3562.0
+      },
+      {
+        "threshold": 0.97,
+        "precision": 0.0,
+        "recall": 0.0,
+        "flagged": 0,
+        "cost": 4070.0
+      }
+    ]
+  },
+  "note": "Cost ratio 10:1 (missed churner : wasted retention offer) is an ASSUMPTION; replace with finance-approved figures."
+}

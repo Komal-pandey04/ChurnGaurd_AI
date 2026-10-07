@@ -1,0 +1,82 @@
+// ===== ChurnGuard DAX measures =====
+// Model relationships (Model view):
+//   dim_dataset[dataset_key] 1 --> * fact_customers[dataset_key]
+//   dim_dataset[dataset_key] 1 --> * fact_model_metrics[dataset_key]
+//   dim_dataset[dataset_key] 1 --> * fact_shap[dataset_key]
+//   fact_customers[customer_id] is NOT unique across datasets (it is unique within one),
+//   so relate fact_shap to fact_customers by a composite key:
+//   add to BOTH tables a calculated column  Key = [dataset_key] & "|" & [customer_id]
+//   then fact_customers[Key] 1 --> * fact_shap[Key]  (single direction)
+
+// ---------- Headline ----------
+Customers = COUNTROWS ( fact_customers )
+
+Actual Churn Rate = AVERAGE ( fact_customers[churn_flag] )
+
+Avg Predicted Churn Probability = AVERAGE ( fact_customers[churn_probability] )
+
+High Risk Customers =
+CALCULATE ( [Customers], fact_customers[risk_level] IN { "High", "Critical" } )
+
+High Risk % = DIVIDE ( [High Risk Customers], [Customers] )
+
+// ---------- Money ----------
+// WARNING: currencies differ per dataset (Telco $, Retail GBP, Bank has none).
+// Only show these with ONE dataset selected, or per-dataset in a table/matrix.
+Revenue at Risk = SUM ( fact_customers[revenue_at_risk] )
+
+Total CLV = SUM ( fact_customers[CLV] )
+
+Revenue at Risk % = DIVIDE ( [Revenue at Risk], [Total CLV] )
+
+Revenue at Risk (single dataset) =
+IF ( HASONEVALUE ( dim_dataset[dataset_key] ), [Revenue at Risk], BLANK () )
+
+Currency Label = SELECTEDVALUE ( dim_dataset[currency], "mixed" )
+
+// ---------- Model quality (read from the pipeline, not recomputed) ----------
+Production ROC-AUC = SELECTEDVALUE ( dim_dataset[test_roc_auc] )
+Production PR-AUC  = SELECTEDVALUE ( dim_dataset[test_pr_auc] )
+Production Model   = SELECTEDVALUE ( dim_dataset[production_model], "select one dataset" )
+Label Caveat       = SELECTEDVALUE ( dim_dataset[label_note], "" )
+
+// ---------- Calibration check: do predicted risks match reality? ----------
+Calibration Gap = [Avg Predicted Churn Probability] - [Actual Churn Rate]
+
+// ---------- Drivers ----------
+Avg Absolute SHAP = AVERAGEX ( fact_shap, ABS ( fact_shap[contribution] ) )
+
+// ---------- Retention targeting ----------
+// Customers at/above a threshold chosen with a What-If parameter named "Risk Threshold"
+// (Modeling > New parameter > Numeric range 0 to 1, step 0.05, default 0.5)
+Customers Above Threshold =
+CALCULATE ( [Customers], fact_customers[churn_probability] >= [Risk Threshold Value] )
+
+Revenue Protectable at Threshold =
+CALCULATE ( [Revenue at Risk], fact_customers[churn_probability] >= [Risk Threshold Value] )
+
+// ===== Sales forecast (Retail) =====
+// Tables: fact_sales_weekly (week_start, actual, backtest_1w_ahead, backtest_4w_ahead, forecast, lower_80, upper_80, row_type)
+//         fact_sales_backtest (model, is_chosen, weekly_mape_pct, weekly_rmse, weekly_bias_pct, total_4w_mape_pct, ...)
+// Set fact_sales_weekly[week_start] to Date type and use it as the X axis of a line chart.
+Weekly Actual Sales     = SUM ( fact_sales_weekly[actual] )
+Backtest Forecast 1w    = SUM ( fact_sales_weekly[backtest_1w_ahead] )
+Forecast Sales          = SUM ( fact_sales_weekly[forecast] )
+Forecast Lower 80       = SUM ( fact_sales_weekly[lower_80] )
+Forecast Upper 80       = SUM ( fact_sales_weekly[upper_80] )
+
+Next 4 Weeks Forecast   = CALCULATE ( [Forecast Sales], fact_sales_weekly[row_type] = "forecast" )
+Next 4 Weeks Low        = CALCULATE ( [Forecast Lower 80], fact_sales_weekly[row_type] = "forecast" )
+Next 4 Weeks High       = CALCULATE ( [Forecast Upper 80], fact_sales_weekly[row_type] = "forecast" )
+
+// Recomputed from the exported backtest rows (history rows that have a 1-week-ahead prediction)
+Backtest MAPE 1w =
+VAR t = FILTER ( fact_sales_weekly, NOT ISBLANK ( fact_sales_weekly[backtest_1w_ahead] ) && fact_sales_weekly[actual] > 0 )
+RETURN AVERAGEX ( t, DIVIDE ( ABS ( fact_sales_weekly[actual] - fact_sales_weekly[backtest_1w_ahead] ), fact_sales_weekly[actual] ) )
+
+Backtest RMSE 1w =
+VAR t = FILTER ( fact_sales_weekly, NOT ISBLANK ( fact_sales_weekly[backtest_1w_ahead] ) )
+RETURN SQRT ( AVERAGEX ( t, ( fact_sales_weekly[actual] - fact_sales_weekly[backtest_1w_ahead] ) ^ 2 ) )
+
+Chosen Model MAPE (pooled 1-4w) =
+CALCULATE ( MAX ( fact_sales_backtest[weekly_mape_pct] ), fact_sales_backtest[is_chosen] = TRUE () )

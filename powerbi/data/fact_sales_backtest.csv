@@ -1,0 +1,6 @@
+model,is_chosen,weekly_mape_pct,weekly_rmse,weekly_bias_pct,total_4w_mape_pct,total_4w_rmse,n_origins
+exp_smoothing,False,19.77,62525.5,-9.71,18.99,204890.12,23
+linear_trend_26w,False,16.69,59123.24,-12.15,15.06,189928.67,23
+moving_avg_4w,True,16.67,58878.85,-12.09,13.61,186805.95,23
+naive,False,20.58,63921.26,-9.39,19.76,211669.05,23
+ridge_lags,False,19.59,68535.91,-20.06,18.29,229984.61,23

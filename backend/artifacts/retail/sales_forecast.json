@@ -1,0 +1,676 @@
+{
+  "dataset": "retail",
+  "currency": "GBP",
+  "target": "weekly revenue (Quantity x UnitPrice), identified customers only",
+  "horizon_weeks": 4,
+  "n_weeks_history": 52,
+  "history_from": "2010-12-06",
+  "history_to": "2011-11-28",
+  "chosen_model": "moving_avg_4w",
+  "selection_rule": "lowest weekly MAPE pooled over horizons 1-4 in the rolling-origin backtest",
+  "backtest": {
+    "scheme": "expanding window, first origin after 26 weeks, forecast 4 weeks ahead",
+    "models": {
+      "exp_smoothing": {
+        "weekly_all_horizons": {
+          "mape_pct": 19.77,
+          "rmse": 62525.5,
+          "mae": 47156.41,
+          "bias_pct": -9.71
+        },
+        "weekly_by_horizon": {
+          "1": {
+            "mape_pct": 19.94,
+            "rmse": 57623.9,
+            "mae": 44784.68,
+            "bias_pct": -5.41
+          },
+          "2": {
+            "mape_pct": 18.53,
+            "rmse": 55714.1,
+            "mae": 41718.93,
+            "bias_pct": -8.51
+          },
+          "3": {
+            "mape_pct": 20.19,
+            "rmse": 67915.59,
+            "mae": 50602.21,
+            "bias_pct": -10.71
+          },
+          "4": {
+            "mape_pct": 20.41,
+            "rmse": 67828.09,
+            "mae": 51519.83,
+            "bias_pct": -13.8
+          }
+        },
+        "next_4_week_total": {
+          "mape_pct": 18.99,
+          "rmse": 204890.12,
+          "mae": 176978.36,
+          "bias_pct": -9.71
+        },
+        "n_origins": 23
+      },
+      "linear_trend_26w": {
+        "weekly_all_horizons": {
+          "mape_pct": 16.69,
+          "rmse": 59123.24,
+          "mae": 41935.97,
+          "bias_pct": -12.15
+        },
+        "weekly_by_horizon": {
+          "1": {
+            "mape_pct": 15.7,
+            "rmse": 52360.79,
+            "mae": 36551.55,
+            "bias_pct": -9.45
+          },
+          "2": {
+            "mape_pct": 16.93,
+            "rmse": 58547.81,
+            "mae": 41599.32,
+            "bias_pct": -11.46
+          },
+          "3": {
+            "mape_pct": 16.92,
+            "rmse": 61573.17,
+            "mae": 43555.84,
+            "bias_pct": -12.65
+          },
+          "4": {
+            "mape_pct": 17.21,
+            "rmse": 63415.12,
+            "mae": 46037.19,
+            "bias_pct": -14.76
+          }
+        },
+        "next_4_week_total": {
+          "mape_pct": 15.06,
+          "rmse": 189928.67,
+          "mae": 150207.64,
+          "bias_pct": -12.15
+        },
+        "n_origins": 23
+      },
+      "moving_avg_4w": {
+        "weekly_all_horizons": {
+          "mape_pct": 16.67,
+          "rmse": 58878.85,
+          "mae": 41466.88,
+          "bias_pct": -12.09
+        },
+        "weekly_by_horizon": {
+          "1": {
+            "mape_pct": 14.5,
+            "rmse": 49315.23,
+            "mae": 33953.11,
+            "bias_pct": -7.9
+          },
+          "2": {
+            "mape_pct": 16.55,
+            "rmse": 57592.38,
+            "mae": 40333.18,
+            "bias_pct": -10.92
+          },
+          "3": {
+            "mape_pct": 17.59,
+            "rmse": 62614.0,
+            "mae": 44192.03,
+            "bias_pct": -13.06
+          },
+          "4": {
+            "mape_pct": 18.05,
+            "rmse": 64788.04,
+            "mae": 47389.18,
+            "bias_pct": -16.07
+          }
+        },
+        "next_4_week_total": {
+          "mape_pct": 13.61,
+          "rmse": 186805.95,
+          "mae": 137707.19,
+          "bias_pct": -12.09
+        },
+        "n_origins": 23
+      },
+      "naive": {
+        "weekly_all_horizons": {
+          "mape_pct": 20.58,
+          "rmse": 63921.26,
+          "mae": 48890.42,
+          "bias_pct": -9.39
+        },
+        "weekly_by_horizon": {
+          "1": {
+            "mape_pct": 20.99,
+            "rmse": 59731.47,
+            "mae": 47051.71,
+            "bias_pct": -5.07
+          },
+          "2": {
+            "mape_pct": 19.36,
+            "rmse": 56272.51,
+            "mae": 43382.8,
+            "bias_pct": -8.18
+          },
+          "3": {
+            "mape_pct": 20.83,
+            "rmse": 69472.39,
+            "mae": 51910.13,
+            "bias_pct": -10.39
+          },
+          "4": {
+            "mape_pct": 21.14,
+            "rmse": 69158.16,
+            "mae": 53217.04,
+            "bias_pct": -13.49
+          }
+        },
+        "next_4_week_total": {
+          "mape_pct": 19.76,
+          "rmse": 211669.05,
+          "mae": 183429.9,
+          "bias_pct": -9.39
+        },
+        "n_origins": 23
+      },
+      "ridge_lags": {
+        "weekly_all_horizons": {
+          "mape_pct": 19.59,
+          "rmse": 68535.91,
+          "mae": 50433.68,
+          "bias_pct": -20.06
+        },
+        "weekly_by_horizon": {
+          "1": {
+            "mape_pct": 17.31,
+            "rmse": 59468.47,
+            "mae": 41948.98,
+            "bias_pct": -15.58
+          },
+          "2": {
+            "mape_pct": 18.92,
+            "rmse": 64953.74,
+            "mae": 47820.97,
+            "bias_pct": -19.66
+          },
+          "3": {
+            "mape_pct": 20.1,
+            "rmse": 72143.62,
+            "mae": 53087.27,
+            "bias_pct": -21.37
+          },
+          "4": {
+            "mape_pct": 22.01,
+            "rmse": 76344.59,
+            "mae": 58877.51,
+            "bias_pct": -23.24
+          }
+        },
+        "next_4_week_total": {
+          "mape_pct": 18.29,
+          "rmse": 229984.61,
+          "mae": 183332.49,
+          "bias_pct": -20.06
+        },
+        "n_origins": 23
+      }
+    }
+  },
+  "interval": {
+    "level": "80%",
+    "method": "empirical quantiles of backtest actual/forecast ratios",
+    "weekly_ratio_by_horizon": {
+      "1": [
+        0.8406911628085023,
+        1.3659348743412507
+      ],
+      "2": [
+        0.8148758803394879,
+        1.3913462760069621
+      ],
+      "3": [
+        0.8276885598531875,
+        1.4305507191884699
+      ],
+      "4": [
+        0.9001204448020516,
+        1.4682523069026576
+      ]
+    },
+    "total_ratio": [
+      0.941001915075675,
+      1.420161057690698
+    ],
+    "total_backtest_coverage": 0.739
+  },
+  "next_month": {
+    "from": "2011-12-05",
+    "to": "2012-01-01",
+    "forecast_total": 1399450.4,
+    "lower_80": 1316885.51,
+    "upper_80": 1987444.96,
+    "same_weeks_last_year": {
+      "from": "2010-12-06",
+      "total": 638318.31,
+      "weekly": [
+        329936.81,
+        216012.2,
+        92369.3,
+        0.0
+      ],
+      "forecast_vs_last_year_ratio": 2.19,
+      "note": "Weeks near Christmas collapse in the prior year (the business appears to pause); no model here can learn that from a single year, so treat late-December weeks with caution."
+    }
+  },
+  "next_weeks": [
+    {
+      "week_start": "2011-12-05",
+      "horizon": 1,
+      "forecast": 349862.6,
+      "lower_80": 294126.4,
+      "upper_80": 477889.53
+    },
+    {
+      "week_start": "2011-12-12",
+      "horizon": 2,
+      "forecast": 349862.6,
+      "lower_80": 285094.59,
+      "upper_80": 486780.03
+    },
+    {
+      "week_start": "2011-12-19",
+      "horizon": 3,
+      "forecast": 349862.6,
+      "lower_80": 289577.27,
+      "upper_80": 500496.19
+    },
+    {
+      "week_start": "2011-12-26",
+      "horizon": 4,
+      "forecast": 349862.6,
+      "lower_80": 314918.48,
+      "upper_80": 513686.57
+    }
+  ],
+  "partial_actual_check": {
+    "week_start": "2011-12-05",
+    "actual_so_far": 504309.93,
+    "exceeds_upper_80_of_full_week": true,
+    "note": "Only part of this week exists in the data. If actual_so_far already exceeds the week's upper bound, the model is under-forecasting the holiday ramp."
+  },
+  "history": [
+    {
+      "week_start": "2010-12-06",
+      "actual": 329936.81,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2010-12-13",
+      "actual": 216012.2,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2010-12-20",
+      "actual": 92369.3,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2010-12-27",
+      "actual": 0.0,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-01-03",
+      "actual": 133658.19,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-01-10",
+      "actual": 193362.04,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-01-17",
+      "actual": 215533.18,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-01-24",
+      "actual": 125170.79,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-01-31",
+      "actual": 125990.68,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-02-07",
+      "actual": 107080.7,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-02-14",
+      "actual": 143734.46,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-02-21",
+      "actual": 148710.78,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-02-28",
+      "actual": 132717.55,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-03-07",
+      "actual": 135220.53,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-03-14",
+      "actual": 161691.62,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-03-21",
+      "actual": 149655.47,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-03-28",
+      "actual": 192720.48,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-04-04",
+      "actual": 134483.88,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-04-11",
+      "actual": 149571.68,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-04-18",
+      "actual": 141650.98,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-04-25",
+      "actual": 86465.08,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-05-02",
+      "actual": 146941.6,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-05-09",
+      "actual": 211984.26,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-05-16",
+      "actual": 215835.32,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-05-23",
+      "actual": 166087.12,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-05-30",
+      "actual": 118688.68,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-06-06",
+      "actual": 220151.72,
+      "backtest_forecast_1w": 178148.84,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-06-13",
+      "actual": 190132.24,
+      "backtest_forecast_1w": 180190.71,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-06-20",
+      "actual": 135972.61,
+      "backtest_forecast_1w": 173764.94,
+      "backtest_forecast_4w": null
+    },
+    {
+      "week_start": "2011-06-27",
+      "actual": 139216.16,
+      "backtest_forecast_1w": 166236.31,
+      "backtest_forecast_4w": 178148.84
+    },
+    {
+      "week_start": "2011-07-04",
+      "actual": 177320.48,
+      "backtest_forecast_1w": 171368.18,
+      "backtest_forecast_4w": 180190.71
+    },
+    {
+      "week_start": "2011-07-11",
+      "actual": 137142.63,
+      "backtest_forecast_1w": 160660.37,
+      "backtest_forecast_4w": 173764.94
+    },
+    {
+      "week_start": "2011-07-18",
+      "actual": 202365.54,
+      "backtest_forecast_1w": 147412.97,
+      "backtest_forecast_4w": 166236.31
+    },
+    {
+      "week_start": "2011-07-25",
+      "actual": 182685.09,
+      "backtest_forecast_1w": 164011.2,
+      "backtest_forecast_4w": 171368.18
+    },
+    {
+      "week_start": "2011-08-01",
+      "actual": 170702.36,
+      "backtest_forecast_1w": 174878.44,
+      "backtest_forecast_4w": 160660.37
+    },
+    {
+      "week_start": "2011-08-08",
+      "actual": 179171.08,
+      "backtest_forecast_1w": 173223.91,
+      "backtest_forecast_4w": 147412.97
+    },
+    {
+      "week_start": "2011-08-15",
+      "actual": 176016.97,
+      "backtest_forecast_1w": 183731.02,
+      "backtest_forecast_4w": 164011.2
+    },
+    {
+      "week_start": "2011-08-22",
+      "actual": 164939.43,
+      "backtest_forecast_1w": 177143.88,
+      "backtest_forecast_4w": 174878.44
+    },
+    {
+      "week_start": "2011-08-29",
+      "actual": 154058.24,
+      "backtest_forecast_1w": 172707.46,
+      "backtest_forecast_4w": 173223.91
+    },
+    {
+      "week_start": "2011-09-05",
+      "actual": 192703.67,
+      "backtest_forecast_1w": 168546.43,
+      "backtest_forecast_4w": 183731.02
+    },
+    {
+      "week_start": "2011-09-12",
+      "actual": 230137.26,
+      "backtest_forecast_1w": 171929.58,
+      "backtest_forecast_4w": 177143.88
+    },
+    {
+      "week_start": "2011-09-19",
+      "actual": 338771.79,
+      "backtest_forecast_1w": 185459.65,
+      "backtest_forecast_4w": 172707.46
+    },
+    {
+      "week_start": "2011-09-26",
+      "actual": 211800.22,
+      "backtest_forecast_1w": 228917.74,
+      "backtest_forecast_4w": 168546.43
+    },
+    {
+      "week_start": "2011-10-03",
+      "actual": 319987.39,
+      "backtest_forecast_1w": 243353.24,
+      "backtest_forecast_4w": 171929.58
+    },
+    {
+      "week_start": "2011-10-10",
+      "actual": 228776.18,
+      "backtest_forecast_1w": 275174.17,
+      "backtest_forecast_4w": 185459.65
+    },
+    {
+      "week_start": "2011-10-17",
+      "actual": 276656.42,
+      "backtest_forecast_1w": 274833.9,
+      "backtest_forecast_4w": 228917.74
+    },
+    {
+      "week_start": "2011-10-24",
+      "actual": 260555.63,
+      "backtest_forecast_1w": 259305.05,
+      "backtest_forecast_4w": 243353.24
+    },
+    {
+      "week_start": "2011-10-31",
+      "actual": 301897.83,
+      "backtest_forecast_1w": 271493.91,
+      "backtest_forecast_4w": 275174.17
+    },
+    {
+      "week_start": "2011-11-07",
+      "actual": 370044.97,
+      "backtest_forecast_1w": 266971.52,
+      "backtest_forecast_4w": 274833.9
+    },
+    {
+      "week_start": "2011-11-14",
+      "actual": 388622.44,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": 259305.05
+    },
+    {
+      "week_start": "2011-11-21",
+      "actual": 316412.16,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": 271493.91
+    },
+    {
+      "week_start": "2011-11-28",
+      "actual": 324370.83,
+      "backtest_forecast_1w": null,
+      "backtest_forecast_4w": 266971.52
+    }
+  ],
+  "monthly_actuals": [
+    {
+      "month": "2010-12",
+      "actual": 823746.14
+    },
+    {
+      "month": "2011-01",
+      "actual": 691364.56
+    },
+    {
+      "month": "2011-02",
+      "actual": 523631.89
+    },
+    {
+      "month": "2011-03",
+      "actual": 717639.36
+    },
+    {
+      "month": "2011-04",
+      "actual": 537808.62
+    },
+    {
+      "month": "2011-05",
+      "actual": 770536.02
+    },
+    {
+      "month": "2011-06",
+      "actual": 761739.9
+    },
+    {
+      "month": "2011-07",
+      "actual": 719221.19
+    },
+    {
+      "month": "2011-08",
+      "actual": 748076.32
+    },
+    {
+      "month": "2011-09",
+      "actual": 1058590.17
+    },
+    {
+      "month": "2011-10",
+      "actual": 1154979.3
+    },
+    {
+      "month": "2011-11",
+      "actual": 1509496.33
+    }
+  ],
+  "data_info": {
+    "data_first_day": "2010-12-01",
+    "data_last_day": "2011-12-09",
+    "dropped_partial_weeks": {
+      "2010-11-29": 185427.83,
+      "2011-12-05": 504309.93
+    }
+  },
+  "accuracy_note": "Only one year of weekly history exists, so yearly seasonality cannot be learned and the backtest window contains the Sep-Nov holiday ramp; expect under-forecasting there. Intervals are empirical and based on ~23 backtest origins. Revenue covers identified customers only. The chosen model was selected on the same backtest it is scored on, so its error is mildly optimistic."
+}
